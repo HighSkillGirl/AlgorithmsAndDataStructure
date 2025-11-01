@@ -1,4 +1,4 @@
-package high.skill.girl.prepare.interview.algorithm_tasks;
+package high.skill.girl.prepare.interview.algorithms.tasks;
 
 /*
 Дан упорядоченный по неубыванию массив целых 32-разрядных чисел. Требуется удалить из него все повторения.

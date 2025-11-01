@@ -1,4 +1,4 @@
-package high.skill.girl.prepare.interview.algorithm_tasks;
+package high.skill.girl.prepare.interview.algorithms.tasks;
 
 /*
 Требуется найти в бинарном векторе (массиве 1 и 0) самую длинную последовательность единиц и вывести её длину.
