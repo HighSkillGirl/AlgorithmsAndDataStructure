@@ -28,7 +28,7 @@ public class CountUnitsInBinVectorYandex {
         int localCount = 0;
         int maxCount = 0;
 
-        // 4 - раньше был for, но так выглядит профессиональнее, нравится
+        // 4 - раньше был for, но так выглядит профессиональнее, нравится (вычитание после проверки)
         while (initCountOfBinVector-- > 0) {
             int newDigit = Integer.parseInt(reader.readLine()); // 5 - читаем новое число последовательности, парсим в int
 
