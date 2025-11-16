@@ -24,7 +24,7 @@ public class CountUnitsInBinVectorYandex {
         int initCountOfBinVector = Integer.parseInt(reader.readLine());
         if (initCountOfBinVector > 10_000) initCountOfBinVector = 0;
 
-        // 3 - заводим переменные. Local нужна для счета на каждой итерации, max - для хранения максимального счета на протяжении всей последовательности
+        // 3 - заводим переменные. Local нужна для счета на каждой итерации (до 0), max - для хранения максимального счета на протяжении всей последовательности
         int localCount = 0;
         int maxCount = 0;
 
