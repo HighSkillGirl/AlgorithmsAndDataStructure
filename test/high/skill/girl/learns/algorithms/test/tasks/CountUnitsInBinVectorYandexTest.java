@@ -1,20 +1,20 @@
 package high.skill.girl.learns.algorithms.test.tasks;
 
+import high.skill.girl.learns.algorithms.tasks.CountUnitsInBinVectorYandex;
 import high.skill.girl.learns.algorithms.tasks.StonesAndJewelryYandex;
 import high.skill.girl.learns.algorithms.test.exception.NotExpectedResultException;
 
 import java.io.*;
 
-public class StonesAndJewelryYandexTest {
+public class CountUnitsInBinVectorYandexTest {
 
-    private static final TestCaseModel[] testCases = new TestCaseModel[]
+    private static final CountUnitsInBinVectorYandexTest.TestCaseModel[] testCases = new CountUnitsInBinVectorYandexTest.TestCaseModel[]
             {
-                new TestCaseModel("a", "a", 1),
-                new TestCaseModel("a", "A", 0),
-                new TestCaseModel("ab", "ac", 1),
-                new TestCaseModel("ab", "abc", 2),
-                new TestCaseModel("a", "a0", 1),
-                new TestCaseModel("a", "-a", 1)
+                new TestCaseModel(1, new int[]{1}, 1),
+                new TestCaseModel(1, new int[]{0}, 0),
+                new TestCaseModel(5, new int[]{1, 1, 1, 0, 1}, 3),
+                new TestCaseModel(10_001, new int[]{1}, 0),
+
             };
 
     public static void main(String[] args) throws IOException {
@@ -24,15 +24,19 @@ public class StonesAndJewelryYandexTest {
 
         try {
             for (TestCaseModel testCase : testCases) {
-                String testInput = testCase.comparedString[0] + "\n" + testCase.comparedString[1] + "\n";
-                ByteArrayInputStream testIn = new ByteArrayInputStream(testInput.getBytes());
+                StringBuilder sb = new StringBuilder();
+                sb.append(testCase.n).append("\n");
+                for (int j = 0; j < testCase.binVector.length; j++) {
+                    sb.append(testCase.binVector[j]).append("\n");
+                }
+                ByteArrayInputStream testIn = new ByteArrayInputStream(sb.toString().getBytes());
                 System.setIn(testIn);
 
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 PrintStream testOut = new PrintStream(outputStream);
                 System.setOut(testOut);
 
-                StonesAndJewelryYandex.main(new String[]{});
+                CountUnitsInBinVectorYandex.main(new String[]{});
                 String output = outputStream.toString().trim();
                 int actual = Integer.parseInt(output);
 
@@ -46,15 +50,16 @@ public class StonesAndJewelryYandexTest {
         } catch (NotExpectedResultException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     private static class TestCaseModel {
-        String[] comparedString;
+        int n;
+        int[] binVector;
         int expectedResult;
 
-        public TestCaseModel(String jewelry, String stones, int expectedResult) {
-            this.comparedString = new String[]{jewelry, stones};
+        public TestCaseModel(int n, int[] binVector, int expectedResult) {
+            this.n = n;
+            this.binVector = binVector;
             this.expectedResult = expectedResult;
         }
     }

@@ -3,11 +3,6 @@ package high.skill.girl.learns.algorithms.tasks;
 /*
 Требуется найти в бинарном векторе (массиве 1 и 0) самую длинную последовательность единиц и вывести её длину.
 Желательно получить решение, работающее за линейное время и при этом проходящее по входному массиву только один раз.
-
-Тест-кейсы:
-1 1 => 1
-1 0 => 0
-5 1 1 1 0 1 => 3
  */
 
 import java.io.BufferedReader;
@@ -15,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class CountUnitsInBinVectorYandex {
-    public static void main(String... args) throws IOException { // не забудь про пакеты и исключения, они автоматически подсвечиваются только в IDE
+    public static void main(String[] args) throws IOException { // не забудь про пакеты и исключения, они автоматически подсвечиваются только в IDE
 
         // 1 - создаем ридер для чтения консоли
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
