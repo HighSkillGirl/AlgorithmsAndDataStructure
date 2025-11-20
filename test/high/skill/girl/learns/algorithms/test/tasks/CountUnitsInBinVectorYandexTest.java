@@ -55,6 +55,4 @@ public class CountUnitsInBinVectorYandexTest implements Testable<CountUnitsInBin
     public String getSimpleClassName() {
         return CountUnitsInBinVectorYandex.class.getSimpleName();
     }
-
-
 }

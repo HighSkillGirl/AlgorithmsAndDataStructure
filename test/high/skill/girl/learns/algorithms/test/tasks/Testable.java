@@ -21,7 +21,7 @@ public interface Testable<T> {
                 System.setOut(testOut);
 
                 testAlgorithm();
-                String actualOutput = outputStream.toString().trim();
+                String actualOutput = outputStream.toString().trim().replaceAll("\n", ", ");
 
                 System.setIn(originalIn);
                 System.setOut(originalOut);
