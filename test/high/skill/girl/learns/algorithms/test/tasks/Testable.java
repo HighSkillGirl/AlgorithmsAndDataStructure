@@ -21,14 +21,15 @@ public interface Testable<T> {
                 System.setOut(testOut);
 
                 testAlgorithm();
-                String actualOutput = outputStream.toString().trim().replaceAll("\n", ", ");
+                String actualOutput = outputStream.toString().trim();
+                String actualResult = cleanOutput(actualOutput);
 
                 System.setIn(originalIn);
                 System.setOut(originalOut);
 
                 String expectedResult = getExpectedResult(testCase);
-                if (!isResultCorrect(actualOutput, expectedResult)) {
-                    throw new NotExpectedResultException(getSimpleClassName(), actualOutput, expectedResult);
+                if (!isResultCorrect(actualResult, expectedResult)) {
+                    throw new NotExpectedResultException(getSimpleClassName(), actualResult, expectedResult);
                 }
             }
         } catch (NotExpectedResultException e) {
@@ -39,6 +40,7 @@ public interface Testable<T> {
     T[] getTestCases();
     String getTestInput(T t);
     void testAlgorithm() throws IOException;
+    String cleanOutput(String output);
     String getExpectedResult(T t);
     boolean isResultCorrect(String actual, String expected);
     String getSimpleClassName();

@@ -38,6 +38,11 @@ public class StonesAndJewelryYandexTest implements Testable<StonesAndJewelryYand
     }
 
     @Override
+    public String cleanOutput(String output) {
+        return output;
+    }
+
+    @Override
     public String getExpectedResult(TestCaseModel testCase) {
         return String.valueOf(testCase.expectedResult);
     }

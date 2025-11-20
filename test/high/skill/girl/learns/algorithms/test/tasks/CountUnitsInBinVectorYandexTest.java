@@ -42,6 +42,11 @@ public class CountUnitsInBinVectorYandexTest implements Testable<CountUnitsInBin
     }
 
     @Override
+    public String cleanOutput(String output) {
+        return output;
+    }
+
+    @Override
     public String getExpectedResult(TestCaseModel testCase) {
         return String.valueOf(testCase.expectedResult);
     }

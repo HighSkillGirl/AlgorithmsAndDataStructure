@@ -32,6 +32,11 @@ public class DeleteDuplicatesYandexTest implements Testable<DeleteDuplicatesYand
     }
 
     @Override
+    public String cleanOutput(String output) {
+        return output.replaceAll("\n", ", ");
+    }
+
+    @Override
     public String getExpectedResult(TestCaseModel testCase) {
         return testCase.expectedString;
     }
