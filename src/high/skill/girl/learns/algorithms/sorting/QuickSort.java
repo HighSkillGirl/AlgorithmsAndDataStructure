@@ -1,7 +1,7 @@
 package high.skill.girl.learns.algorithms.sorting;
 
 // сортировка в рекурсии - после деления массива складываем по условию >< чем pivot
-// используется в обучении, так как создание на каждом уровне массивов избыточно
+// используется в обучении, так как создание массивов на каждом уровне рекурсии избыточно
 // сложность по времени: O(n^2) в худшем случае и O(n log n) в среднем
 // сложность по памяти: O(n^2) в худшем случае и O(n log n) в среднем
 
@@ -10,10 +10,11 @@ import java.util.Arrays;
 public class QuickSort {
     public static void main(String[] args) {
         int[] data = new int[]{-1, 3, 4, -3, -3, 253, -18, 1};
-        System.out.println(Arrays.toString(divideAndConquerQuickSort(data)));
+        System.out.println(Arrays.toString(arrayQuickSort(data)));
+        System.out.println(Arrays.toString(inPlaceQuickSort(data, 0, data.length - 1)));
     }
 
-    private static int[] divideAndConquerQuickSort(int[] array) {
+    private static int[] arrayQuickSort(int[] array) {
         if (array.length <= 1) return array;
 
         int pivotIndex = array.length / 2;
@@ -38,9 +39,9 @@ public class QuickSort {
             }
         }
 
-        return mergeArrays(divideAndConquerQuickSort(Arrays.copyOf(leftArray, leftSizeCount + 1))
+        return mergeArrays(arrayQuickSort(Arrays.copyOf(leftArray, leftSizeCount + 1))
                          , Arrays.copyOf(equalPivotArray, equalPivotSize + 1)
-                         , divideAndConquerQuickSort(Arrays.copyOf(rightArray, rightSizeCount + 1)));
+                         , arrayQuickSort(Arrays.copyOf(rightArray, rightSizeCount + 1)));
     }
 
     private static int[] mergeArrays(int[] leftArray, int[] equalPivotArray, int[] rightArray) {
@@ -49,5 +50,36 @@ public class QuickSort {
         System.arraycopy(equalPivotArray, 0, result, leftArray.length, equalPivotArray.length);
         System.arraycopy(rightArray, 0, result, leftArray.length + equalPivotArray.length, rightArray.length);
         return result;
+    }
+
+    private static int[] inPlaceQuickSort(int[] array, int left, int right) {
+        if (left >= right) return array;
+
+        int pivotValue = array[(left + right) / 2];
+        int i = left;
+        int j = right;
+
+        while (i <= j) {
+            while (array[i] < pivotValue) {
+                i++;
+            }
+            while (array[j] > pivotValue) {
+                j--;
+            }
+
+            if (i <= j) {
+                int temp = array[j];
+                array[j] = array[i];
+                array[i] = temp;
+
+                i++;
+                j--;
+            }
+        }
+
+        inPlaceQuickSort(array, left, j);
+        inPlaceQuickSort(array, i, right);
+
+        return array;
     }
 }
