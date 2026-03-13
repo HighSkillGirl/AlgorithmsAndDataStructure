@@ -3,7 +3,7 @@ package high.skill.girl.learns.algorithms.tasks;
 public class UncodingStringYandex {
 
     public static void main(String[] args) {
-        String input = "31665"; //8512#12#15#89
+        String input = "31665"; //31665 //8512#12#15#89
         StringBuilder result = new StringBuilder(input);
 
         int hashIndex = input.indexOf('#');
@@ -16,11 +16,10 @@ public class UncodingStringYandex {
 
         for (int i = 0; i < result.length(); i++) {
             char symbol = result.charAt(i);
-            if (!Character.isAlphabetic(symbol)) {
-                String symbolNumberString = String.valueOf(symbol);
-                int symbolNumber = Integer.parseInt(symbolNumberString);
+            if (Character.isDigit(symbol)) {
+                int symbolNumber = symbol - '0';
                 char letter = (char) ('a' + symbolNumber - 1);
-                result.replace(i, i + 1, String.valueOf(letter));
+                result.setCharAt(i, letter);
             }
         }
 
@@ -28,12 +27,7 @@ public class UncodingStringYandex {
     }
 
     private static char uncodeSubstring(String subString) {
-        StringBuilder twoSymbolLetter = new StringBuilder();
-        for (int i = 0; i < subString.length() - 1; i++) {
-            char symbol = subString.charAt(i);
-            twoSymbolLetter.append(symbol);
-        }
-        int symbolNumber = Integer.parseInt(twoSymbolLetter.toString());
+        int symbolNumber = (subString.charAt(0) - '0') * 10 + (subString.charAt(1) - '0');
         return (char) ('a' + symbolNumber - 1);
     }
 
