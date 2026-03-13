@@ -4,8 +4,7 @@ public class UncodingStringYandex {
 
     public static void main(String[] args) {
         String input = "8512#12#15#89"; //31665 //8512#12#15#89
-        //uncodeAlgorithmV1(input);
-        uncodeAlgorithmV2(input);
+        uncodeAlgorithmV1(input);
     }
 
     private static void uncodeAlgorithmV1(String input) {
@@ -28,30 +27,6 @@ public class UncodingStringYandex {
         }
 
         System.out.println(result);
-    }
-
-    private static void uncodeAlgorithmV2(String input) {
-        StringBuilder result = new StringBuilder();
-        int hashIndex = input.indexOf('#');
-        int fromIndex = 0;
-        int toIndex = hashIndex;
-
-        toIndex = input.length();
-
-        String sub1 = input.substring(fromIndex, toIndex);
-        for (int i = 0; i < sub1.length(); i++) {
-            char symbol = sub1.charAt(i);
-            int symbolNumber = symbol - '0';
-            char letter = (char) ('a' + symbolNumber - 1);
-            result.append(letter);
-        }
-            String sub2 = input.substring(hashIndex - 2, hashIndex);
-            result.append(uncodeSubstring(sub2));
-            fromIndex = hashIndex + 1;
-            hashIndex = input.indexOf("#", fromIndex);
-
-        System.out.println(result);
-
     }
 
     private static char uncodeSubstring(String subString) {
