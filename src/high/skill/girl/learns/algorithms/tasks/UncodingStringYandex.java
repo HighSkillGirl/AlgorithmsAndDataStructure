@@ -4,10 +4,10 @@ public class UncodingStringYandex {
 
     public static void main(String[] args) {
         String input = "8512#12#15#89"; //31665 //8512#12#15#89
-        uncodeAlgorithmV1(input);
+        uncode(input);
     }
 
-    private static void uncodeAlgorithmV1(String input) {
+    private static void uncode(String input) {
         StringBuilder result = new StringBuilder(input);
         int hashIndex = input.indexOf('#');
 
