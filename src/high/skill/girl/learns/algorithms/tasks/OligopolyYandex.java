@@ -1,7 +1,6 @@
 package high.skill.girl.learns.algorithms.tasks;
 
 import java.io.*;
-import java.util.StringTokenizer;
 
 public class OligopolyYandex {
     public static void main(String[] args) throws IOException {
@@ -18,10 +17,10 @@ public class OligopolyYandex {
 
         long[] inputArray = new long[n];
 
-        StringTokenizer tokenizer = new StringTokenizer(a);
+        String[] a1 = a.split(" ");
         int index = 0;
-        while (tokenizer.hasMoreTokens()) {
-            long value = Integer.parseInt(tokenizer.nextToken());
+        for (String s : a1) {
+            long value = Integer.parseInt(s);
             if (value <= 0) return;
             inputArray[index] = value;
             index++;
@@ -29,32 +28,21 @@ public class OligopolyYandex {
 
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        if (n == 1 || index < n) {
+        if (n == 1) {
             writer.write("1");
             writer.close();
             return;
         }
 
-        long[] prefixSumArray = new long[n];
-        for (int i = 1; i < n; i++) {
-            if (inputArray[i] > inputArray[i - 1]) {
-
-                long innerSum = 0;
-                for (int k = i; k >= 0; k--) {
-                    innerSum += (int) inputArray[k];
-                }
-                prefixSumArray[i] = innerSum;
-            } else {
-                prefixSumArray[i] = prefixSumArray[i - 1];
-            }
+        long looserIndex;
+        if (inputArray[0] == inputArray[index - 1]) {
+            looserIndex = index;
+        } else {
+            looserIndex = binarySearchLooser(inputArray, 0, inputArray.length - 1);
         }
 
-        long sumValue;
-        long nextValue;
-        for (int i = 0; i < n; i++) {
-            sumValue = prefixSumArray[i];
-            nextValue = i + 1 >= n ? inputArray[n - 1] : inputArray[i + 1];
-            if (sumValue < nextValue || sumValue == nextValue) {
+        for (long i = 0; i < n; i++) {
+            if (i <= looserIndex) {
                 writer.write("0");
                 writer.newLine();
             } else {
@@ -62,8 +50,19 @@ public class OligopolyYandex {
                 writer.newLine();
             }
         }
-
         writer.close();
+    }
 
+    private static long binarySearchLooser(long[] array, int leftIndex, int rightIndex) {
+        int middleIndex = (leftIndex + rightIndex) / 2;
+        long prefixSum = 0;
+        for (int i = middleIndex - 1; i >= 0; i--) {
+            prefixSum += array[i];
+        }
+        if (prefixSum + array[middleIndex] > array[middleIndex + 1]) {
+            return binarySearchLooser(array, leftIndex, middleIndex - 1);
+        } else {
+            return middleIndex;
+        }
     }
 }
