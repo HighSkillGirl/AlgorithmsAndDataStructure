@@ -1,5 +1,15 @@
 package high.skill.girl.learns.algorithms.tasks;
-// TODO: add tests and description
+
+// задача на теоретическое поглощение компаний: нужно определить, какие компании могут поглотить всех остальных и выиграть
+// ввод: число компаний, их капиталы в порядке возрастания
+// вывод: в том же порядке 0 - если компания не сможет поглотить всех и 1 - если ей удасться
+
+// используется рекурсивный бинарный поиск границы, с которой все справа будут победителями
+// не проходят тесты в контексте, но я не могу выяснить причину
+
+// сложность по памяти - O(n)
+// сложность по времени - O(n)
+
 import java.io.*;
 
 public class OligopolyYandex {
@@ -8,6 +18,10 @@ public class OligopolyYandex {
 
         int n = Integer.parseInt(reader.readLine());
         if (n <= 0) {
+            reader.close();
+            return;
+        } else if (n == 1) {
+            System.out.println(1);
             reader.close();
             return;
         }
@@ -26,41 +40,31 @@ public class OligopolyYandex {
             index++;
         }
 
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
-
-        if (n == 1) {
-            writer.write("1");
-            writer.close();
-            return;
+        long[] prefixSumArray = new long[n];
+        for (int i = 1; i < n - 1; i++) {
+            prefixSumArray[i] = inputArray[i] + prefixSumArray[i - 1];
         }
 
         long looserIndex;
         if (inputArray[0] == inputArray[index - 1]) {
             looserIndex = index;
         } else {
-            looserIndex = binarySearchLooser(inputArray, 0, inputArray.length - 1);
+            looserIndex = binarySearchLooser(inputArray, prefixSumArray, 0, inputArray.length - 1);
         }
 
         for (long i = 0; i < n; i++) {
             if (i <= looserIndex) {
-                writer.write("0");
-                writer.newLine();
+                System.out.println(0);
             } else {
-                writer.write("1");
-                writer.newLine();
+                System.out.println(1);
             }
         }
-        writer.close();
     }
 
-    private static long binarySearchLooser(long[] array, int leftIndex, int rightIndex) {
+    private static long binarySearchLooser(long[] inputArray, long[] prefixSumArray, int leftIndex, int rightIndex) {
         int middleIndex = (leftIndex + rightIndex) / 2;
-        long prefixSum = 0;
-        for (int i = middleIndex - 1; i >= 0; i--) {
-            prefixSum += array[i];
-        }
-        if (prefixSum + array[middleIndex] > array[middleIndex + 1]) {
-            return binarySearchLooser(array, leftIndex, middleIndex - 1);
+        if (prefixSumArray[middleIndex - 1] + inputArray[middleIndex] > inputArray[middleIndex + 1]) {
+            return binarySearchLooser(inputArray, prefixSumArray, leftIndex, middleIndex - 1);
         } else {
             return middleIndex;
         }
