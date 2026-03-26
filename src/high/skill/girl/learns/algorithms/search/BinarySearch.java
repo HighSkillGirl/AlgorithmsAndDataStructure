@@ -6,6 +6,8 @@ package high.skill.girl.learns.algorithms.search;
 // сложность по времени - O(log n)
 // сложность по памяти - O(log n) в рекурсии и O(1) через итерацию
 
+// TODO: add tests
+
 public class BinarySearch {
     public static void main(String[] args) {
         int[] data = new int[]{-3, 1, 1, 2, 5, 7, 10, 25, 253};

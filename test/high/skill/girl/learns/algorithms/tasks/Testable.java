@@ -32,7 +32,7 @@ public interface Testable<T> {
                     throw new NotExpectedResultException(getSimpleClassName(), actualResult, expectedResult);
                 }
             }
-            System.out.println("Все тест-кейсы отработаны успешно!");
+            System.out.println("Все тест-кейсы пройдены успешно!");
         } catch (NotExpectedResultException e) {
             System.out.println(e.getMessage());
         }

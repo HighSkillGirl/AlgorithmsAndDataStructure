@@ -10,6 +10,7 @@ package high.skill.girl.learns.algorithms.sorting;
 // сложность по времени - O(n log n) (глубина рекурсии log n * проход массива на 1 рекурсии n). Если pivot выбран плохо и массив отсортирован - O(n^2)
 // сложность по памяти - O(log n), но в худшем случае - O(n) из-за глубины рекурсии
 
+//TODO: add tests for all sorting
 import java.util.Arrays;
 
 public class QuickSort {

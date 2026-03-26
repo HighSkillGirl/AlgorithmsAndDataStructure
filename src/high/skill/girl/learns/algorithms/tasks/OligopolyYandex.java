@@ -1,5 +1,5 @@
 package high.skill.girl.learns.algorithms.tasks;
-
+// TODO: add tests and description
 import java.io.*;
 
 public class OligopolyYandex {
