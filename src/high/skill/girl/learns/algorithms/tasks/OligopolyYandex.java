@@ -10,7 +10,10 @@ package high.skill.girl.learns.algorithms.tasks;
 // сложность по памяти - O(n)
 // сложность по времени - O(n)
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class OligopolyYandex {
     public static void main(String[] args) throws IOException {
@@ -31,10 +34,10 @@ public class OligopolyYandex {
 
         long[] inputArray = new long[n];
 
-        String[] a1 = a.split(" ");
+        StringTokenizer tokenizer = new StringTokenizer(a);
         int index = 0;
-        for (String s : a1) {
-            long value = Integer.parseInt(s);
+        while (tokenizer.hasMoreTokens()) {
+            long value = Integer.parseInt(tokenizer.nextToken());
             if (value <= 0) return;
             inputArray[index] = value;
             index++;
