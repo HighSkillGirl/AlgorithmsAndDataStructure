@@ -1,11 +1,10 @@
 package high.skill.girl.learns.algorithms.tasks.impl;
 
 import high.skill.girl.learns.algorithms.tasks.StonesAndJewelryYandex;
-import high.skill.girl.learns.algorithms.tasks.Testable;
-
+import high.skill.girl.learns.algorithms.tasks.TaskTestable;
 import java.io.*;
 
-public class StonesAndJewelryYandexTest implements Testable<StonesAndJewelryYandexTest.TestCaseModel> {
+public class StonesAndJewelryYandexTest implements TaskTestable<StonesAndJewelryYandexTest.TestCaseModel> {
 
     public record TestCaseModel (String jewelry, String stones, int expectedResult) { }
 

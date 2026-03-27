@@ -4,7 +4,7 @@ import high.skill.girl.learns.algorithms.exception.NotExpectedResultException;
 
 import java.io.*;
 
-public interface Testable<T> {
+public interface TaskTestable<T> {
 
     default void test() throws IOException {
         InputStream originalIn = System.in;

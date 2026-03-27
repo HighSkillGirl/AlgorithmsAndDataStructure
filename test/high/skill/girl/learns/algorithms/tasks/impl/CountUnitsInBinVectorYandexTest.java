@@ -1,11 +1,11 @@
 package high.skill.girl.learns.algorithms.tasks.impl;
 
 import high.skill.girl.learns.algorithms.tasks.CountUnitsInBinVectorYandex;
-import high.skill.girl.learns.algorithms.tasks.Testable;
+import high.skill.girl.learns.algorithms.tasks.TaskTestable;
 
 import java.io.*;
 
-public class CountUnitsInBinVectorYandexTest implements Testable<CountUnitsInBinVectorYandexTest.TestCaseModel> {
+public class CountUnitsInBinVectorYandexTest implements TaskTestable<CountUnitsInBinVectorYandexTest.TestCaseModel> {
 
     public record TestCaseModel (int n, int[] binVector, int expectedResult) { }
 

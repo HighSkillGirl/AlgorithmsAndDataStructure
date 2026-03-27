@@ -1,11 +1,10 @@
 package high.skill.girl.learns.algorithms.tasks.impl;
 
-import high.skill.girl.learns.algorithms.tasks.Testable;
 import high.skill.girl.learns.algorithms.tasks.UncodingStringYandex;
-
+import high.skill.girl.learns.algorithms.tasks.TaskTestable;
 import java.io.IOException;
 
-public class UncodingStringYandexTest implements Testable<UncodingStringYandexTest.TestCaseModel> {
+public class UncodingStringYandexTest implements TaskTestable<UncodingStringYandexTest.TestCaseModel> {
 
     public record TestCaseModel (String input, String expectedResult) { }
 

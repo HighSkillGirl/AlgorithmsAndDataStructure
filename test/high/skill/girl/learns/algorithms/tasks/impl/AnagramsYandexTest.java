@@ -1,11 +1,11 @@
 package high.skill.girl.learns.algorithms.tasks.impl;
 
 import high.skill.girl.learns.algorithms.tasks.AnagramsYandex;
-import high.skill.girl.learns.algorithms.tasks.Testable;
+import high.skill.girl.learns.algorithms.tasks.TaskTestable;
 
 import java.io.IOException;
 
-public class AnagramsYandexTest implements Testable<AnagramsYandexTest.TestCaseModel> {
+public class AnagramsYandexTest implements TaskTestable<AnagramsYandexTest.TestCaseModel> {
 
     public record TestCaseModel(String[] input, int expectedResult) { }
 

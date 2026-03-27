@@ -1,11 +1,11 @@
 package high.skill.girl.learns.algorithms.tasks.impl;
 
 import high.skill.girl.learns.algorithms.tasks.InterestingJourneyYandex;
-import high.skill.girl.learns.algorithms.tasks.Testable;
+import high.skill.girl.learns.algorithms.tasks.TaskTestable;
 
 import java.io.IOException;
 
-public class InterestingJourneyYandexTest implements Testable<InterestingJourneyYandexTest.TestCaseModel> {
+public class InterestingJourneyYandexTest implements TaskTestable<InterestingJourneyYandexTest.TestCaseModel> {
 
     public record TestCaseModel(int n, int[][] coordinates, int k, int[] ab, int expectedResult) { }
 
