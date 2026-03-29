@@ -1,11 +1,11 @@
 package high.skill.girl.learns.algorithms.tasks.impl;
 
 import high.skill.girl.learns.algorithms.tasks.GenerationOfBracketSequenceYandex;
-import high.skill.girl.learns.algorithms.tasks.TestCasesTestable;
+import high.skill.girl.learns.algorithms.tasks.TestCasesInterface;
 
 import java.io.IOException;
 
-public class GenerationOfBracketSequenceYandexTest implements TestCasesTestable<GenerationOfBracketSequenceYandexTest.TestCaseModel> {
+public class GenerationOfBracketSequenceYandexTest implements TestCasesInterface<GenerationOfBracketSequenceYandexTest.TestCaseModel> {
 
     public record TestCaseModel(int n, String expectedResult) { }
 

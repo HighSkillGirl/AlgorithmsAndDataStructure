@@ -1,11 +1,11 @@
 package high.skill.girl.learns.algorithms.tasks.impl;
 
 import high.skill.girl.learns.algorithms.tasks.DeleteDuplicatesYandex;
-import high.skill.girl.learns.algorithms.tasks.TestCasesTestable;
+import high.skill.girl.learns.algorithms.tasks.TestCasesInterface;
 
 import java.io.IOException;
 
-public class DeleteDuplicatesYandexTest implements TestCasesTestable<DeleteDuplicatesYandexTest.TestCaseModel> {
+public class DeleteDuplicatesYandexTest implements TestCasesInterface<DeleteDuplicatesYandexTest.TestCaseModel> {
 
     public record TestCaseModel (int n, String duplicatesString, String expectedString) { }
 

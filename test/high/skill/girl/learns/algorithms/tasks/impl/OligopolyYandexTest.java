@@ -1,11 +1,11 @@
 package high.skill.girl.learns.algorithms.tasks.impl;
 
 import high.skill.girl.learns.algorithms.tasks.OligopolyYandex;
-import high.skill.girl.learns.algorithms.tasks.TestCasesTestable;
+import high.skill.girl.learns.algorithms.tasks.TestCasesInterface;
 
 import java.io.IOException;
 
-public class OligopolyYandexTest implements TestCasesTestable<OligopolyYandexTest.TestCaseModel> {
+public class OligopolyYandexTest implements TestCasesInterface<OligopolyYandexTest.TestCaseModel> {
 
     public record TestCaseModel (int playersCount, String capitals, String expectedResult) { }
 
