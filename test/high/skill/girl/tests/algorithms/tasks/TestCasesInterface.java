@@ -1,6 +1,6 @@
-package high.skill.girl.learns.algorithms.tasks;
+package high.skill.girl.tests.algorithms.tasks;
 
-import high.skill.girl.learns.algorithms.exception.NotExpectedResultException;
+import high.skill.girl.tests.algorithms.exception.NotExpectedResultException;
 
 import java.io.*;
 

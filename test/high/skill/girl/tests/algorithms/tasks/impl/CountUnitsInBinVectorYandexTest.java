@@ -1,7 +1,7 @@
-package high.skill.girl.learns.algorithms.tasks.impl;
+package high.skill.girl.tests.algorithms.tasks.impl;
 
 import high.skill.girl.learns.algorithms.tasks.CountUnitsInBinVectorYandex;
-import high.skill.girl.learns.algorithms.tasks.TestCasesInterface;
+import high.skill.girl.tests.algorithms.tasks.TestCasesInterface;
 
 import java.io.*;
 

@@ -1,5 +1,6 @@
-package high.skill.girl.learns.algorithms.search;
+package high.skill.girl.tests.algorithms.search;
 
+import high.skill.girl.learns.algorithms.search.BinarySearch;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.results.RunResult;
 import org.openjdk.jmh.results.format.ResultFormatType;

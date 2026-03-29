@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.exception;
+package high.skill.girl.tests.algorithms.exception;
 
 public class NotExpectedResultException extends RuntimeException {
 
