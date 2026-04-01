@@ -2,6 +2,7 @@ package high.skill.girl.tests.algorithms.search;
 
 import high.skill.girl.learns.algorithms.search.BinarySearch;
 import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.results.Result;
 import org.openjdk.jmh.results.RunResult;
 import org.openjdk.jmh.results.format.ResultFormatType;
 import org.openjdk.jmh.runner.Runner;
@@ -23,6 +24,7 @@ public class BinarySearchTest {
                 .forks(1)
                 .warmupIterations(1)
                 .measurementIterations(2)
+                .addProfiler("gc")
                 .resultFormat(ResultFormatType.JSON)
                 .result("results.json")
                 .build();
@@ -30,10 +32,17 @@ public class BinarySearchTest {
         Collection<RunResult> results = new Runner(opt).run();
 
         for (RunResult r : results) {
-            System.out.printf("%s: %.6f %s%n",
+            String n = r.getParams().getParam("n");
+
+            Result alloc = r.getSecondaryResults().get("gc.alloc.rate.norm");
+
+            System.out.printf("%s: %s -> time=%.6f %s, alloc=%.2f %s%n",
                     r.getParams().getBenchmark(),
+                    n,
                     r.getPrimaryResult().getScore(),
-                    r.getPrimaryResult().getScoreUnit());
+                    r.getPrimaryResult().getScoreUnit(),
+                    alloc.getScore(),
+                    alloc.getScoreUnit());
         }
 
     }
