@@ -1,6 +1,6 @@
-package high.skill.girl.tests.algorithms.search;
+package high.skill.girl.tests.algorithms.sorting;
 
-import high.skill.girl.learns.algorithms.search.BinarySearch;
+import high.skill.girl.learns.algorithms.sorting.BubbleSort;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.results.Result;
 import org.openjdk.jmh.results.RunResult;
@@ -13,12 +13,11 @@ import java.util.Collection;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class BinarySearchTest {
+public class BubbleSortTest {
 
     public static void main(String[] args) throws RunnerException {
-
         Options opt = new OptionsBuilder()
-                .include("BinarySearchTest")
+                .include("BubbleSortTest")
                 .mode(Mode.AverageTime)
                 .forks(1)
                 .warmupIterations(1)
@@ -41,36 +40,28 @@ public class BinarySearchTest {
                     alloc.getScore(),
                     alloc.getScoreUnit());
         }
-
     }
 
     @State(Scope.Thread)
     public static class TestCaseModel {
 
-        @Param({"100", "1000", "10000", "100000", "1000000", "10000000"})
+        @Param({"10", "100", "1000", "10000", "100000", "1000000", "10000000"})
         private int length;
         private int[] array;
-        Random randomInt = new Random();
-        int wanted;
 
         @Setup(Level.Iteration)
         public void setup() {
+            Random r = new Random();
             array = new int[length];
-            for (int i = 0; i < length; i++) array[i] = i;
+            for (int i = 0; i < length; i++) {
+                array[i] = r.nextInt(length - 1) + 1;
+            }
         }
     }
 
     @Benchmark
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    public void recursionBinarySearch(TestCaseModel testCase) {
-        testCase.wanted = testCase.randomInt.nextInt(testCase.length - 10) + 10;
-        BinarySearch.recursionBinarySearch(testCase.array, testCase.wanted, 0, testCase.length - 1);
-    }
-
-    @Benchmark
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    public void whileBinarySearch(TestCaseModel testCase) {
-        testCase.wanted = testCase.randomInt.nextInt(testCase.length - 10) + 10;
-        BinarySearch.whileBinarySearch(testCase.array, testCase.wanted);
+    public void bubbleSort(BubbleSortTest.TestCaseModel testCase) {
+        BubbleSort.bubbleSort(testCase.array);
     }
 }

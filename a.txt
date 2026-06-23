@@ -1,6 +1,0 @@
-100 -> time=0.000043 ms/op, alloc=0.00 B/op
-1000 -> time=0.000064 ms/op, alloc=0.00 B/op
-10000 -> time=0.000084 ms/op, alloc=0.00 B/op
-100000 -> time=0.000119 ms/op, alloc=0.00 B/op
-1000000 -> time=0.000179 ms/op, alloc=0.07 B/op
-10000000 -> time=0.000425 ms/op, alloc=1.70 B/op

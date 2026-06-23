@@ -7,7 +7,7 @@ package high.skill.girl.learns.algorithms.search;
 // сложность по памяти - O(log n) в рекурсии и O(1) через итерацию
 
 public class BinarySearch {
-    public static void main(String[] args) {
+    public static void main(String[] args) { // нужен для ручной отладки
         int[] data = new int[]{-3, 1, 1, 2, 4, 7, 13};
         int index = recursionBinarySearch(data, 2, 0, data.length - 1);
         //System.out.println(index);
