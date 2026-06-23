@@ -9,5 +9,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jmh-core-1.37" level="project" />
+    <orderEntry type="library" name="jmh-generator-annprocess-1.37" level="project" />
+    <orderEntry type="library" name="jopt-simple-5.0.4" level="project" />
+    <orderEntry type="library" name="commons-math3-3.6.1" level="project" />
   </component>
 </module>

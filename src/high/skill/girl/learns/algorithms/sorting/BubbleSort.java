@@ -10,10 +10,10 @@ import java.util.Arrays;
 public class BubbleSort {
     public static void main(String[] args) {
         int[] data = new int[]{4, -1, 8, 6, 5};
-        bubbleSort(data);
+        System.out.println(Arrays.toString(bubbleSort(data)));
     }
 
-    private static void bubbleSort(int[] array) {
+    public static int[] bubbleSort(int[] array) {
         boolean while_swap = true;
 
         while (while_swap) {
@@ -32,6 +32,6 @@ public class BubbleSort {
                 }
             }
         }
-        System.out.println(Arrays.toString(array));
+        return array;
     }
 }
