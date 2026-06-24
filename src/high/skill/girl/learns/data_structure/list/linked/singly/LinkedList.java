@@ -26,6 +26,48 @@ public class LinkedList<T> {
         currentNode.next = newNode;
     }
 
+    public void removeIndex(int index) {
+        if (index < 0)
+            throw new IndexOutOfBoundsException();
+
+        Node<T> prevNode = null;
+        Node<T> currentNode = head;
+
+        for (int i = 0; i < index; i++) {
+            if (currentNode == null)
+                throw new IndexOutOfBoundsException();
+            prevNode = currentNode;
+            currentNode = currentNode.next;
+        }
+
+        if (prevNode == null) {
+            head = currentNode.next;
+            return;
+        }
+
+        prevNode.next = currentNode.next;
+    }
+
+    public void removeValue(T value) {
+        Node<T> prevNode = null;
+        Node<T> currentNode = head;
+
+        while (currentNode != null) {
+
+            if (currentNode.value.equals(value)) {
+                if (prevNode == null) {
+                    head = currentNode.next;
+                } else {
+                    prevNode.next = currentNode.next;
+                }
+                return;
+            }
+
+            prevNode = currentNode;
+            currentNode = currentNode.next;
+        }
+    }
+
     public boolean contains(T value) {
         Node<T> currentNode = head;
         while (currentNode != null) {
@@ -38,6 +80,9 @@ public class LinkedList<T> {
     }
 
     public T get(int index) {
+        if (index < 0)
+            throw new IndexOutOfBoundsException();
+
         Node<T> currentNode = head;
 
         for (int i = 0; i < index; i++) { // мы уже нашли значение из-за .next, индексация идет позже, поэтому удобно без <=
