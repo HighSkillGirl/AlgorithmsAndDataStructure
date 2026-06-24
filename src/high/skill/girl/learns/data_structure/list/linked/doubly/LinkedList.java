@@ -1,0 +1,88 @@
+package high.skill.girl.learns.data_structure.list.linked.doubly;
+
+public class LinkedList<T> {
+
+    private Node<T> head;
+
+    public void addFirst(T value) {
+        Node<T> newNode = new Node<>(value);
+        newNode.next = head;
+
+        if (head != null) {
+            head.prev = newNode;
+        }
+        head = newNode;
+    }
+
+    public void addLast(T value) {
+        Node<T> newNode = new Node<>(value);
+
+        Node<T> currentNode = head;
+
+        while (currentNode != null) {
+            if (currentNode.next == null) {
+                currentNode.next = newNode;
+                newNode.prev = currentNode;
+                return;
+            } else {
+                currentNode = currentNode.next;
+            }
+        }
+    }
+
+    public boolean contains(T value) {
+        Node<T> currentNode = head;
+
+        while (currentNode != null) {
+            if (currentNode.value.equals(value)) {
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
+        return false;
+    }
+
+    public T get(int index) {
+        Node<T> currentNode = head;
+
+        for (int i = 0; i < index; i++) {
+            if (currentNode == null)
+                throw new IndexOutOfBoundsException();
+            currentNode = currentNode.next;
+        }
+
+        if (currentNode == null)
+            throw new IndexOutOfBoundsException();
+
+        return currentNode.value;
+    }
+
+    public int size() {
+        int size = 0;
+        Node<T> currentNode = head;
+
+        while (currentNode != null) {
+            size++;
+            currentNode = currentNode.next;
+        }
+
+        return size;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        Node<T> currentNode = head;
+
+        while (currentNode != null) {
+            sb.append(currentNode.value);
+
+            if (currentNode.next != null) {
+                sb.append(" -> ");
+            }
+            currentNode = currentNode.next;
+        }
+        return sb.toString();
+    }
+}

@@ -1,4 +1,4 @@
-package high.skill.girl.learns.data_structure.list.linked;
+package high.skill.girl.learns.data_structure.list.linked.singly;
 
 public class LinkedList<T> {
 
@@ -28,7 +28,7 @@ public class LinkedList<T> {
 
     public boolean contains(T value) {
         Node<T> currentNode = head;
-        while (currentNode.next != null) {
+        while (currentNode != null) {
             if (currentNode.value.equals(value)) {
                 return true;
             }
@@ -40,21 +40,23 @@ public class LinkedList<T> {
     public T get(int index) {
         Node<T> currentNode = head;
 
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < index; i++) { // мы уже нашли значение из-за .next, индексация идет позже, поэтому удобно без <=
             if (currentNode == null)
                 throw new IndexOutOfBoundsException();
-
             currentNode = currentNode.next;
         }
+
+        if (currentNode == null)
+            throw new IndexOutOfBoundsException();
 
         return currentNode.value;
     }
 
     public int size() {
+        int size = 0;
         Node<T> currentNode = head;
-        int size = 1;
 
-        while (currentNode.next != null) {
+        while (currentNode != null) {
             size++;
             currentNode = currentNode.next;
         }
