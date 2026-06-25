@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks;
+package high.skill.girl.learns.algorithms.tasks.yandex;
 
 /*
 Дан упорядоченный по неубыванию массив целых 32-разрядных чисел. Требуется удалить из него все повторения.
@@ -7,7 +7,7 @@ package high.skill.girl.learns.algorithms.tasks;
 
 import java.io.*;
 
-public class DeleteDuplicatesYandex {
+public class DeleteDuplicates {
     public static void main(String[] args) throws IOException { // 1 - не забываем исключения и пакеты
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 

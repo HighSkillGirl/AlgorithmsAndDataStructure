@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks;
+package high.skill.girl.learns.algorithms.tasks.yandex;
 
 /*
 В первой строке входных данных записано количество городов.
@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class InterestingJourneyYandex {
+public class InterestingJourney {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 

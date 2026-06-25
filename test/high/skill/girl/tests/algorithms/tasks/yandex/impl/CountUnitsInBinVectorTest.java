@@ -1,11 +1,11 @@
-package high.skill.girl.tests.algorithms.tasks.impl;
+package high.skill.girl.tests.algorithms.tasks.yandex.impl;
 
-import high.skill.girl.learns.algorithms.tasks.CountUnitsInBinVectorYandex;
-import high.skill.girl.tests.algorithms.tasks.TestCasesInterface;
+import high.skill.girl.learns.algorithms.tasks.yandex.CountUnitsInBinVector;
+import high.skill.girl.tests.algorithms.tasks.yandex.TestCasesInterface;
 
 import java.io.*;
 
-public class CountUnitsInBinVectorYandexTest implements TestCasesInterface<CountUnitsInBinVectorYandexTest.TestCaseModel> {
+public class CountUnitsInBinVectorTest implements TestCasesInterface<CountUnitsInBinVectorTest.TestCaseModel> {
 
     public record TestCaseModel (int n, int[] binVector, int expectedResult) { }
 
@@ -19,7 +19,7 @@ public class CountUnitsInBinVectorYandexTest implements TestCasesInterface<Count
             };
 
     public static void main(String[] args) throws IOException {
-        new CountUnitsInBinVectorYandexTest().test();
+        new CountUnitsInBinVectorTest().test();
     }
 
     @Override
@@ -39,7 +39,7 @@ public class CountUnitsInBinVectorYandexTest implements TestCasesInterface<Count
 
     @Override
     public void testAlgorithm() throws IOException {
-        CountUnitsInBinVectorYandex.main(new String[]{});
+        CountUnitsInBinVector.main(new String[]{});
     }
 
     @Override
@@ -54,6 +54,6 @@ public class CountUnitsInBinVectorYandexTest implements TestCasesInterface<Count
 
     @Override
     public String getSimpleClassName() {
-        return CountUnitsInBinVectorYandex.class.getSimpleName();
+        return CountUnitsInBinVector.class.getSimpleName();
     }
 }

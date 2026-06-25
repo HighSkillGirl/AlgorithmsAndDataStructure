@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks;
+package high.skill.girl.learns.algorithms.tasks.yandex;
 
 /*
 Даны две строки строчных латинских символов: строка J и строка S.
@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class StonesAndJewelryYandex {
+public class StonesAndJewelry {
     public static void main(String[] args) throws IOException { // не забудь про пакеты и исключения, они автоматически подсвечиваются только в IDE
         // 1 - вычитываем входящие данные
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

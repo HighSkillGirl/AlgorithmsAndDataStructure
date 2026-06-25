@@ -1,11 +1,11 @@
-package high.skill.girl.tests.algorithms.tasks.impl;
+package high.skill.girl.tests.algorithms.tasks.yandex.impl;
 
-import high.skill.girl.learns.algorithms.tasks.DeleteDuplicatesYandex;
-import high.skill.girl.tests.algorithms.tasks.TestCasesInterface;
+import high.skill.girl.learns.algorithms.tasks.yandex.DeleteDuplicates;
+import high.skill.girl.tests.algorithms.tasks.yandex.TestCasesInterface;
 
 import java.io.IOException;
 
-public class DeleteDuplicatesYandexTest implements TestCasesInterface<DeleteDuplicatesYandexTest.TestCaseModel> {
+public class DeleteDuplicatesTest implements TestCasesInterface<DeleteDuplicatesTest.TestCaseModel> {
 
     public record TestCaseModel (int n, String duplicatesString, String expectedString) { }
 
@@ -14,7 +14,7 @@ public class DeleteDuplicatesYandexTest implements TestCasesInterface<DeleteDupl
     };
 
     public static void main(String[] args) throws IOException {
-        new DeleteDuplicatesYandexTest().test();
+        new DeleteDuplicatesTest().test();
     }
 
     @Override
@@ -29,7 +29,7 @@ public class DeleteDuplicatesYandexTest implements TestCasesInterface<DeleteDupl
 
     @Override
     public void testAlgorithm() throws IOException {
-        DeleteDuplicatesYandex.main(new String[]{});
+        DeleteDuplicates.main(new String[]{});
     }
 
     @Override
@@ -44,6 +44,6 @@ public class DeleteDuplicatesYandexTest implements TestCasesInterface<DeleteDupl
 
     @Override
     public String getSimpleClassName() {
-        return DeleteDuplicatesYandex.class.getSimpleName();
+        return DeleteDuplicates.class.getSimpleName();
     }
 }

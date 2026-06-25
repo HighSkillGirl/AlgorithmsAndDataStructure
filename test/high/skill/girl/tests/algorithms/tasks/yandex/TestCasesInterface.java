@@ -1,4 +1,4 @@
-package high.skill.girl.tests.algorithms.tasks;
+package high.skill.girl.tests.algorithms.tasks.yandex;
 
 import high.skill.girl.tests.algorithms.exception.NotExpectedResultException;
 

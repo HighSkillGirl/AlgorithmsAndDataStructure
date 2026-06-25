@@ -1,11 +1,11 @@
-package high.skill.girl.tests.algorithms.tasks.impl;
+package high.skill.girl.tests.algorithms.tasks.yandex.impl;
 
-import high.skill.girl.learns.algorithms.tasks.InterestingJourneyYandex;
-import high.skill.girl.tests.algorithms.tasks.TestCasesInterface;
+import high.skill.girl.learns.algorithms.tasks.yandex.InterestingJourney;
+import high.skill.girl.tests.algorithms.tasks.yandex.TestCasesInterface;
 
 import java.io.IOException;
 
-public class InterestingJourneyYandexTest implements TestCasesInterface<InterestingJourneyYandexTest.TestCaseModel> {
+public class InterestingJourneyTest implements TestCasesInterface<InterestingJourneyTest.TestCaseModel> {
 
     public record TestCaseModel(int n, int[][] coordinates, int k, int[] ab, int expectedResult) { }
 
@@ -14,7 +14,7 @@ public class InterestingJourneyYandexTest implements TestCasesInterface<Interest
     };
 
     public static void main(String[] args) throws IOException {
-        new InterestingJourneyYandexTest().test();
+        new InterestingJourneyTest().test();
     }
 
     @Override
@@ -36,7 +36,7 @@ public class InterestingJourneyYandexTest implements TestCasesInterface<Interest
 
     @Override
     public void testAlgorithm() throws IOException {
-        InterestingJourneyYandex.main(new String[]{});
+        InterestingJourney.main(new String[]{});
     }
 
     @Override
@@ -51,6 +51,6 @@ public class InterestingJourneyYandexTest implements TestCasesInterface<Interest
 
     @Override
     public String getSimpleClassName() {
-        return InterestingJourneyYandex.class.getSimpleName();
+        return InterestingJourney.class.getSimpleName();
     }
 }

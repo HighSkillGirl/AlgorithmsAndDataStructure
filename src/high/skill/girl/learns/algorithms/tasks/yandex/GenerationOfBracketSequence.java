@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks;
+package high.skill.girl.learns.algorithms.tasks.yandex;
 
 /*
 Единственная строка входного файла содержит целое число n, 0≤n≤11. В задаче используются только круглые скобки.
@@ -14,7 +14,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class GenerationOfBracketSequenceYandex {
+public class GenerationOfBracketSequence {
     public static void main(String[] args) throws IOException {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks;
+package high.skill.girl.learns.algorithms.tasks.yandex;
 
 /*
 Даны две строки, состоящие из строчных латинских букв. Требуется определить, являются ли эти строки анаграммами,
@@ -14,7 +14,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class AnagramsYandex {
+public class Anagrams {
     public static void main(String[] args) throws IOException { // не забывать про пакеты и исключения
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 

@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks;
+package high.skill.girl.learns.algorithms.tasks.yandex;
 
 // дана зашифрованная строка вида 8512#15#10. Цифры от 1 до 9 равнозначны буквам от a до i, далее 10#-26# соотносятся с буквами j-z
 // требуется расшифровать строку. Гарантируется, что исходная строка является закодированной и её можно расшифровать
@@ -13,7 +13,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class UncodingStringYandex {
+public class UncodingString {
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

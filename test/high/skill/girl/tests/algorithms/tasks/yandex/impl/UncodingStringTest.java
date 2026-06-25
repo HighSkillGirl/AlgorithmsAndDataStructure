@@ -1,10 +1,10 @@
-package high.skill.girl.tests.algorithms.tasks.impl;
+package high.skill.girl.tests.algorithms.tasks.yandex.impl;
 
-import high.skill.girl.learns.algorithms.tasks.UncodingStringYandex;
-import high.skill.girl.tests.algorithms.tasks.TestCasesInterface;
+import high.skill.girl.learns.algorithms.tasks.yandex.UncodingString;
+import high.skill.girl.tests.algorithms.tasks.yandex.TestCasesInterface;
 import java.io.IOException;
 
-public class UncodingStringYandexTest implements TestCasesInterface<UncodingStringYandexTest.TestCaseModel> {
+public class UncodingStringTest implements TestCasesInterface<UncodingStringTest.TestCaseModel> {
 
     public record TestCaseModel (String input, String expectedResult) { }
 
@@ -16,7 +16,7 @@ public class UncodingStringYandexTest implements TestCasesInterface<UncodingStri
             };
 
     public static void main(String[] args) throws IOException {
-        new UncodingStringYandexTest().test();
+        new UncodingStringTest().test();
     }
 
     @Override
@@ -31,7 +31,7 @@ public class UncodingStringYandexTest implements TestCasesInterface<UncodingStri
 
     @Override
     public void testAlgorithm() throws IOException {
-        UncodingStringYandex.main(new String[]{});
+        UncodingString.main(new String[]{});
     }
 
     @Override
@@ -46,6 +46,6 @@ public class UncodingStringYandexTest implements TestCasesInterface<UncodingStri
 
     @Override
     public String getSimpleClassName() {
-        return UncodingStringYandex.class.getSimpleName();
+        return UncodingString.class.getSimpleName();
     }
 }

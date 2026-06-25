@@ -1,11 +1,11 @@
-package high.skill.girl.tests.algorithms.tasks.impl;
+package high.skill.girl.tests.algorithms.tasks.yandex.impl;
 
-import high.skill.girl.learns.algorithms.tasks.AnagramsYandex;
-import high.skill.girl.tests.algorithms.tasks.TestCasesInterface;
+import high.skill.girl.learns.algorithms.tasks.yandex.Anagrams;
+import high.skill.girl.tests.algorithms.tasks.yandex.TestCasesInterface;
 
 import java.io.IOException;
 
-public class AnagramsYandexTest implements TestCasesInterface<AnagramsYandexTest.TestCaseModel> {
+public class AnagramsTest implements TestCasesInterface<AnagramsTest.TestCaseModel> {
 
     public record TestCaseModel(String[] input, int expectedResult) { }
 
@@ -17,7 +17,7 @@ public class AnagramsYandexTest implements TestCasesInterface<AnagramsYandexTest
     };
 
     public static void main(String[] args) throws IOException {
-        new AnagramsYandexTest().test();
+        new AnagramsTest().test();
     }
 
     @Override
@@ -32,7 +32,7 @@ public class AnagramsYandexTest implements TestCasesInterface<AnagramsYandexTest
 
     @Override
     public void testAlgorithm() throws IOException {
-        AnagramsYandex.main(new String[]{});
+        Anagrams.main(new String[]{});
     }
 
     @Override
@@ -47,6 +47,6 @@ public class AnagramsYandexTest implements TestCasesInterface<AnagramsYandexTest
 
     @Override
     public String getSimpleClassName() {
-        return AnagramsYandex.class.getSimpleName();
+        return Anagrams.class.getSimpleName();
     }
 }

@@ -1,15 +1,15 @@
-package high.skill.girl.tests.algorithms.tasks.impl;
+package high.skill.girl.tests.algorithms.tasks.yandex.impl;
 
-import high.skill.girl.learns.algorithms.tasks.OligopolyYandex;
-import high.skill.girl.tests.algorithms.tasks.TestCasesInterface;
+import high.skill.girl.learns.algorithms.tasks.yandex.Oligopoly;
+import high.skill.girl.tests.algorithms.tasks.yandex.TestCasesInterface;
 
 import java.io.IOException;
 
-public class OligopolyYandexTest implements TestCasesInterface<OligopolyYandexTest.TestCaseModel> {
+public class OligopolyTest implements TestCasesInterface<OligopolyTest.TestCaseModel> {
 
     public record TestCaseModel (int playersCount, String capitals, String expectedResult) { }
 
-    private static final OligopolyYandexTest.TestCaseModel[] testCases = new TestCaseModel[]
+    private static final OligopolyTest.TestCaseModel[] testCases = new TestCaseModel[]
             {
                     new TestCaseModel(0, "", ""),
                     new TestCaseModel(1, "1", "1"),
@@ -22,7 +22,7 @@ public class OligopolyYandexTest implements TestCasesInterface<OligopolyYandexTe
             };
 
     public static void main(String[] args) throws IOException {
-        new OligopolyYandexTest().test();
+        new OligopolyTest().test();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class OligopolyYandexTest implements TestCasesInterface<OligopolyYandexTe
 
     @Override
     public void testAlgorithm() throws IOException {
-        OligopolyYandex.main(new String[]{});
+        Oligopoly.main(new String[]{});
     }
 
     @Override
@@ -52,6 +52,6 @@ public class OligopolyYandexTest implements TestCasesInterface<OligopolyYandexTe
 
     @Override
     public String getSimpleClassName() {
-        return OligopolyYandex.class.getSimpleName();
+        return Oligopoly.class.getSimpleName();
     }
 }

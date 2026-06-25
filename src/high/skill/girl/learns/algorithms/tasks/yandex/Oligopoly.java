@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks;
+package high.skill.girl.learns.algorithms.tasks.yandex;
 
 // задача на теоретическое поглощение компаний: нужно определить, какие компании могут поглотить всех остальных и выиграть
 // ввод: число компаний, их капиталы в порядке возрастания
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class OligopolyYandex {
+public class Oligopoly {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 

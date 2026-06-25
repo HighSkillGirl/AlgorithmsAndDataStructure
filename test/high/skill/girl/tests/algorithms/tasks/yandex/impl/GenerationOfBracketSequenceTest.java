@@ -1,11 +1,11 @@
-package high.skill.girl.tests.algorithms.tasks.impl;
+package high.skill.girl.tests.algorithms.tasks.yandex.impl;
 
-import high.skill.girl.learns.algorithms.tasks.GenerationOfBracketSequenceYandex;
-import high.skill.girl.tests.algorithms.tasks.TestCasesInterface;
+import high.skill.girl.learns.algorithms.tasks.yandex.GenerationOfBracketSequence;
+import high.skill.girl.tests.algorithms.tasks.yandex.TestCasesInterface;
 
 import java.io.IOException;
 
-public class GenerationOfBracketSequenceYandexTest implements TestCasesInterface<GenerationOfBracketSequenceYandexTest.TestCaseModel> {
+public class GenerationOfBracketSequenceTest implements TestCasesInterface<GenerationOfBracketSequenceTest.TestCaseModel> {
 
     public record TestCaseModel(int n, String expectedResult) { }
 
@@ -16,22 +16,22 @@ public class GenerationOfBracketSequenceYandexTest implements TestCasesInterface
     };
 
     public static void main(String[] args) throws IOException {
-        new GenerationOfBracketSequenceYandexTest().test();
+        new GenerationOfBracketSequenceTest().test();
     }
 
     @Override
-    public GenerationOfBracketSequenceYandexTest.TestCaseModel[] getTestCases() {
+    public GenerationOfBracketSequenceTest.TestCaseModel[] getTestCases() {
         return testCases;
     }
 
     @Override
-    public String getTestInput(GenerationOfBracketSequenceYandexTest.TestCaseModel testCase) {
+    public String getTestInput(GenerationOfBracketSequenceTest.TestCaseModel testCase) {
         return String.valueOf(testCase.n);
     }
 
     @Override
     public void testAlgorithm() throws IOException {
-        GenerationOfBracketSequenceYandex.main(new String[]{});
+        GenerationOfBracketSequence.main(new String[]{});
     }
 
     @Override
@@ -40,12 +40,12 @@ public class GenerationOfBracketSequenceYandexTest implements TestCasesInterface
     }
 
     @Override
-    public String getExpectedResult(GenerationOfBracketSequenceYandexTest.TestCaseModel testCase) {
+    public String getExpectedResult(GenerationOfBracketSequenceTest.TestCaseModel testCase) {
         return testCase.expectedResult;
     }
 
     @Override
     public String getSimpleClassName() {
-        return GenerationOfBracketSequenceYandex.class.getSimpleName();
+        return GenerationOfBracketSequence.class.getSimpleName();
     }
 }

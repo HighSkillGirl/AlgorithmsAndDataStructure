@@ -1,10 +1,10 @@
-package high.skill.girl.tests.algorithms.tasks.impl;
+package high.skill.girl.tests.algorithms.tasks.yandex.impl;
 
-import high.skill.girl.learns.algorithms.tasks.StonesAndJewelryYandex;
-import high.skill.girl.tests.algorithms.tasks.TestCasesInterface;
+import high.skill.girl.learns.algorithms.tasks.yandex.StonesAndJewelry;
+import high.skill.girl.tests.algorithms.tasks.yandex.TestCasesInterface;
 import java.io.*;
 
-public class StonesAndJewelryYandexTest implements TestCasesInterface<StonesAndJewelryYandexTest.TestCaseModel> {
+public class StonesAndJewelryTest implements TestCasesInterface<StonesAndJewelryTest.TestCaseModel> {
 
     public record TestCaseModel (String jewelry, String stones, int expectedResult) { }
 
@@ -19,7 +19,7 @@ public class StonesAndJewelryYandexTest implements TestCasesInterface<StonesAndJ
             };
 
     public static void main(String[] args) throws IOException {
-        new StonesAndJewelryYandexTest().test();
+        new StonesAndJewelryTest().test();
     }
 
     @Override
@@ -34,7 +34,7 @@ public class StonesAndJewelryYandexTest implements TestCasesInterface<StonesAndJ
 
     @Override
     public void testAlgorithm() throws IOException {
-        StonesAndJewelryYandex.main(new String[]{});
+        StonesAndJewelry.main(new String[]{});
     }
 
     @Override
@@ -49,6 +49,6 @@ public class StonesAndJewelryYandexTest implements TestCasesInterface<StonesAndJ
 
     @Override
     public String getSimpleClassName() {
-        return StonesAndJewelryYandex.class.getSimpleName();
+        return StonesAndJewelry.class.getSimpleName();
     }
 }

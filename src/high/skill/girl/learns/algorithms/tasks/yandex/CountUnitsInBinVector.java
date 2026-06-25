@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks;
+package high.skill.girl.learns.algorithms.tasks.yandex;
 
 /*
 Требуется найти в бинарном векторе (массиве 1 и 0) самую длинную последовательность единиц и вывести её длину.
@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class CountUnitsInBinVectorYandex {
+public class CountUnitsInBinVector {
     public static void main(String[] args) throws IOException { // не забудь про пакеты и исключения, они автоматически подсвечиваются только в IDE
 
         // 1 - создаем ридер для чтения консоли
