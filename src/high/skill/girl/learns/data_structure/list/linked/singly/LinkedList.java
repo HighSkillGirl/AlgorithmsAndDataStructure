@@ -36,16 +36,16 @@ public class LinkedList<T> {
         for (int i = 0; i < index; i++) {
             if (currentNode == null)
                 throw new IndexOutOfBoundsException();
+
             prevNode = currentNode;
             currentNode = currentNode.next;
         }
 
         if (prevNode == null) {
             head = currentNode.next;
-            return;
+        } else {
+            prevNode.next = currentNode.next;
         }
-
-        prevNode.next = currentNode.next;
     }
 
     public void removeValue(T value) {

@@ -22,9 +22,14 @@ public class SinglyLinkedListTest {
 
         mySinglyLinkedList.removeIndex(0);
         System.out.println("remove by index 0: " + mySinglyLinkedList);
+        mySinglyLinkedList.removeIndex(0);
+        mySinglyLinkedList.removeIndex(0);
+        System.out.println("remove all: " + mySinglyLinkedList);
 
         System.out.println("list contains 3: " + mySinglyLinkedList.contains(3));
         System.out.println("list contains 2: " + mySinglyLinkedList.contains(2));
+
+        mySinglyLinkedList.addFirst(1);
 
         System.out.println("get value by index 0: " + mySinglyLinkedList.get(0));
 

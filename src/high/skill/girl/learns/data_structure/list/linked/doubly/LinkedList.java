@@ -30,6 +30,59 @@ public class LinkedList<T> {
         }
     }
 
+    public void removeIndex(int index) {
+        if (index < 0)
+            throw new IndexOutOfBoundsException();
+
+        Node<T> prevNode = null;
+        Node<T> currentNode = head;
+
+        for (int i = 0; i < index; i++) {
+            if (currentNode == null)
+                throw new IndexOutOfBoundsException();
+
+            prevNode = currentNode;
+            currentNode = currentNode.next;
+        }
+
+        if (prevNode == null) {
+            head = currentNode.next;
+            if (head != null) {
+                head.prev = null;
+            }
+        } else {
+            prevNode.next = currentNode.next;
+            if (currentNode.next != null) {
+                currentNode.next.prev = prevNode;
+            }
+        }
+    }
+
+    public void removeValue(T value) {
+        Node<T> prevNode = null;
+        Node<T> currentNode = head;
+
+        while (currentNode != null) {
+            if (currentNode.value.equals(value)) {
+                if (prevNode == null) {
+                    head = currentNode.next;
+                    if (head != null) {
+                        head.prev = null;
+                        return;
+                    }
+                } else {
+                    prevNode.next = currentNode.next;
+                    if (currentNode.next != null) {
+                        currentNode.next.prev = prevNode;
+                    }
+                }
+            }
+
+            prevNode = currentNode;
+            currentNode = currentNode.next;
+        }
+    }
+
     public boolean contains(T value) {
         Node<T> currentNode = head;
 

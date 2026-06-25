@@ -19,5 +19,26 @@ public class DoublyLinkedListTest {
 
         System.out.println(myDoublyLinkedList.size());
 
+        myDoublyLinkedList.removeIndex(1);
+        myDoublyLinkedList.removeIndex(0);
+        System.out.println("list after removing value by index 1, 0: " + myDoublyLinkedList);
+        myDoublyLinkedList.removeIndex(1);
+        myDoublyLinkedList.removeIndex(0);
+        System.out.println("list after removing all: " + myDoublyLinkedList);
+
+        myDoublyLinkedList.addFirst(5);
+        myDoublyLinkedList.addFirst(3);
+        myDoublyLinkedList.addFirst(1);
+
+        myDoublyLinkedList.addLast(2);
+
+        myDoublyLinkedList.removeValue(1);
+        System.out.println("remove value 1: " + myDoublyLinkedList);
+        myDoublyLinkedList.removeValue(5);
+        System.out.println("remove value 5: " + myDoublyLinkedList);
+        myDoublyLinkedList.removeValue(3);
+        myDoublyLinkedList.removeValue(2);
+        System.out.println("remove all values: " + myDoublyLinkedList);
+
     }
 }
