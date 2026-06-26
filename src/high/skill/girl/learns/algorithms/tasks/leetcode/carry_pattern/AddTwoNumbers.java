@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks.leetcode;
+package high.skill.girl.learns.algorithms.tasks.leetcode.carry_pattern;
 
 /*
 Вам даны два непустых связанных списка, представляющих два неотрицательных целых числа.
@@ -11,6 +11,8 @@ Output: [7,0,8]
 Explanation: 342 + 465 = 807.
 
 !!! CARRY PATTERN: складываем за 1 итерацию оба узла, единицы записываем, десятки переносим
+        по памяти сложность O(n)
+        по времени сложность O(n)
  */
 
 public class AddTwoNumbers {
