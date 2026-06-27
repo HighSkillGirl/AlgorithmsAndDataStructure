@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks.leetcode;
+package high.skill.girl.learns.algorithms.tasks.leetcode.easy;
 
 /* Дан массив целых чисел nums и целое число target. Верните индексы этих двух чисел так, чтобы их сумма равнялась target.
    Предположим, что для каждого входного значения существует ровно одно решение, и нельзя использовать один и тот же элемент дважды.

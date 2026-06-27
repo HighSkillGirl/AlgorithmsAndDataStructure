@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks.leetcode.carry_pattern;
+package high.skill.girl.learns.algorithms.tasks.leetcode.easy;
 
 /*
 Даны две двоичные строки a и b. Верните их сумму в виде двоичной строки.

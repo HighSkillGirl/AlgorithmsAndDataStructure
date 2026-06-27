@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks.leetcode.carry_pattern;
+package high.skill.girl.learns.algorithms.tasks.leetcode.easy;
 
 /*
 Вам дано большое целое число, представленное в виде целочисленного массива digits, где каждый digits[i] — это i-я цифра числа.

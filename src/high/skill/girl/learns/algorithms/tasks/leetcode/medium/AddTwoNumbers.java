@@ -1,4 +1,4 @@
-package high.skill.girl.learns.algorithms.tasks.leetcode.carry_pattern;
+package high.skill.girl.learns.algorithms.tasks.leetcode.medium;
 
 /*
 Вам даны два непустых связанных списка, представляющих два неотрицательных целых числа.
