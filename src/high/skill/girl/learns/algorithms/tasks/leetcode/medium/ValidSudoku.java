@@ -80,7 +80,7 @@ public class ValidSudoku {
             Set<Character> horizontalSet = new HashSet<>();
             for (int column = 0; column < board.length; column++) {
                 char horizontalValue = board[line][column];
-                if (tryAddDigitCharToSet(horizontalValue, horizontalSet))
+                if (valueIsNotDigitOrSetHasDuplicate(horizontalValue, horizontalSet))
                     return false;
             }
         }
@@ -89,7 +89,7 @@ public class ValidSudoku {
             Set<Character> verticalSet = new HashSet<>();
             for (int line = 0; line < board.length; line++) {
                 char verticalValue = board[line][column];
-                if (tryAddDigitCharToSet(verticalValue, verticalSet))
+                if (valueIsNotDigitOrSetHasDuplicate(verticalValue, verticalSet))
                     return false;
             }
         }
@@ -102,7 +102,7 @@ public class ValidSudoku {
                     for (int m = 0; m < 3; m++) {
 
                         char boxValue = board[i + k][j + m];
-                        if (tryAddDigitCharToSet(boxValue, boxSet))
+                        if (valueIsNotDigitOrSetHasDuplicate(boxValue, boxSet))
                             return false;
                     }
                 }
@@ -112,7 +112,7 @@ public class ValidSudoku {
         return true;
     }
 
-    private static boolean tryAddDigitCharToSet(char value, Set<Character> set) {
+    private static boolean valueIsNotDigitOrSetHasDuplicate(char value, Set<Character> set) {
         return value != '.' && !set.add(value);
     }
 }
