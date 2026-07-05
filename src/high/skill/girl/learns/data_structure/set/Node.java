@@ -1,4 +1,4 @@
-package high.skill.girl.learns.data_structure.hash_table.set;
+package high.skill.girl.learns.data_structure.set;
 
 public class Node<T> {
 
