@@ -18,5 +18,7 @@ public class ArrayDequeTest {
         System.out.println(deque.peekLast()); // T - last
         System.out.println(deque.peekFirst()); // R
         System.out.println(deque.pollFirst()); // R -> null
+
+        System.out.println(deque);
     }
 }

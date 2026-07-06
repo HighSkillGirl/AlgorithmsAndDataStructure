@@ -73,4 +73,26 @@ public class ArrayDeque<T> {
         int lastIndex = (tail - 1 + array.length) % array.length;
         return (T) array[lastIndex];
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("[");
+        for (Object value : array) {
+            if (value == null) {
+                sb.append("__");
+            } else {
+                sb.append(value);
+            }
+            sb.append(", ");
+        }
+
+        sb.delete(sb.length() - 2, sb.length());
+        sb.append("]");
+        sb.append(" head=").append(head);
+        sb.append(", tail=").append(tail);
+
+        return sb.toString();
+    }
 }
