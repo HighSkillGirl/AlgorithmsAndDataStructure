@@ -30,6 +30,7 @@ public class DoublyLinkedListTest {
         myDoublyLinkedList.removeIndex(2);
         myDoublyLinkedList.removeIndex(0);
         System.out.println("list after removing all: " + myDoublyLinkedList);
+        myDoublyLinkedList.removeIndex(1);
 
         myDoublyLinkedList.addFirst(5);
         myDoublyLinkedList.addFirst(3);

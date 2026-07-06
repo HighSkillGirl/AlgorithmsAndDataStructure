@@ -23,9 +23,14 @@ public class LinkedList<T> {
 
     public void addLast(T value) {
         Node<T> newNode = new Node<>(value);
-        tail.next = newNode;
-        newNode.prev = tail;
-        tail = newNode;
+
+        if (tail == null) {
+            tail = head = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
         size++;
     }
 
@@ -33,41 +38,20 @@ public class LinkedList<T> {
         if (index < 0)
             throw new IndexOutOfBoundsException();
 
-        Node<T> prevNode = null;
-        Node<T> currentNode;
+        Node<T> currentNode = getCurrentNodeOrThrowException(index);
+        Node<T> next = currentNode.next;
+        Node<T> prev = currentNode.prev;
 
-        int half = size / 2; // поиск нужной ноды
-        if (index < half) {
-            currentNode = head;
-            for (int i = 0; i < index; i++) {
-                if (currentNode == null)
-                    throw new IndexOutOfBoundsException();
-
-                prevNode = currentNode;
-                currentNode = currentNode.next;
-            }
+        if (prev == null) {
+            head = next;
         } else {
-            currentNode = tail;
-            for (int i = size - 1; i > index; i--) {
-                if (currentNode == null)
-                    throw new IndexOutOfBoundsException();
-
-                prevNode = currentNode.prev.prev;
-                currentNode = currentNode.prev;
-            }
+            prev.next = next;
         }
 
-        // удаление
-        if (prevNode == null) {
-            head = currentNode.next;
-            if (head != null) {
-                head.prev = null;
-            }
+        if (next == null) {
+            tail = prev;
         } else {
-            prevNode.next = currentNode.next;
-            if (currentNode.next != null) {
-                currentNode.next.prev = prevNode;
-            }
+            next.prev = prev;
         }
 
         size--;
@@ -83,12 +67,15 @@ public class LinkedList<T> {
                     head = currentNode.next;
                     if (head != null) {
                         head.prev = null;
+                        size--;
                         return;
                     }
                 } else {
                     prevNode.next = currentNode.next;
                     if (currentNode.next != null) {
                         currentNode.next.prev = prevNode;
+                        size--;
+                        return;
                     }
                 }
             }
@@ -111,31 +98,7 @@ public class LinkedList<T> {
     }
 
     public T get(int index) {
-        Node<T> currentNode;
-        int half = size / 2;
-
-        if (index < half) {
-            currentNode = head;
-            for (int i = 0; i < index; i++) {
-                if (currentNode == null)
-                    throw new IndexOutOfBoundsException();
-                currentNode = currentNode.next;
-            }
-
-        } else {
-            currentNode = tail;
-            for (int i = size - 1; i > index; i--) {
-                if (currentNode == null)
-                    throw new IndexOutOfBoundsException();
-                currentNode = currentNode.prev;
-            }
-
-        }
-
-        if (currentNode == null)
-            throw new IndexOutOfBoundsException();
-
-        return currentNode.value;
+        return getCurrentNodeOrThrowException(index).value;
     }
 
     public int size() {
@@ -157,5 +120,32 @@ public class LinkedList<T> {
             currentNode = currentNode.next;
         }
         return sb.toString();
+    }
+
+    private Node<T> getCurrentNodeOrThrowException(int index) {
+        Node<T> currentNode;
+        int half = size / 2;
+
+        if (index < half) {
+            currentNode = head;
+            for (int i = 0; i < index; i++) {
+                if (currentNode == null)
+                    throw new IndexOutOfBoundsException();
+                currentNode = currentNode.next;
+            }
+
+        } else {
+            currentNode = tail;
+            for (int i = size - 1; i > index; i--) {
+                if (currentNode == null)
+                    throw new IndexOutOfBoundsException();
+                currentNode = currentNode.prev;
+            }
+        }
+
+        if (currentNode == null)
+            throw new IndexOutOfBoundsException();
+
+        return currentNode;
     }
 }
