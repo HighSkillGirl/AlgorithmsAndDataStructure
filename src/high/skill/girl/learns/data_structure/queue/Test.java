@@ -1,0 +1,11 @@
+package high.skill.girl.learns.data_structure.queue;
+
+import java.util.ArrayDeque;
+import java.util.Queue;
+
+public class Test {
+    public static void main(String[] args) {
+        Queue<Integer> deque = new ArrayDeque<>();
+        System.out.println((0 - 1 + 5) % 5);
+    }
+}

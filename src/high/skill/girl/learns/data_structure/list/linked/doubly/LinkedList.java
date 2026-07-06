@@ -3,6 +3,7 @@ package high.skill.girl.learns.data_structure.list.linked.doubly;
 public class LinkedList<T> {
 
     private Node<T> head;
+    private Node<T> tail; // TODO: обновить реализацию под наличие хвоста
 
     public void addFirst(T value) {
         Node<T> newNode = new Node<>(value);
