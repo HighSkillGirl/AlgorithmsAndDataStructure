@@ -3,32 +3,30 @@ package high.skill.girl.learns.data_structure.list.linked.doubly;
 public class LinkedList<T> {
 
     private Node<T> head;
-    private Node<T> tail; // TODO: обновить реализацию под наличие хвоста
+    private Node<T> tail;
+    private int size;
 
     public void addFirst(T value) {
         Node<T> newNode = new Node<>(value);
-        newNode.next = head;
 
-        if (head != null) {
-            head.prev = newNode;
+        if (head == null) {
+            head = tail = newNode;
+            size++;
+            return;
         }
+
+        newNode.next = head;
+        head.prev = newNode;
         head = newNode;
+        size++;
     }
 
     public void addLast(T value) {
         Node<T> newNode = new Node<>(value);
-
-        Node<T> currentNode = head;
-
-        while (currentNode != null) {
-            if (currentNode.next == null) {
-                currentNode.next = newNode;
-                newNode.prev = currentNode;
-                return;
-            } else {
-                currentNode = currentNode.next;
-            }
-        }
+        tail.next = newNode;
+        newNode.prev = tail;
+        tail = newNode;
+        size++;
     }
 
     public void removeIndex(int index) {
@@ -36,16 +34,30 @@ public class LinkedList<T> {
             throw new IndexOutOfBoundsException();
 
         Node<T> prevNode = null;
-        Node<T> currentNode = head;
+        Node<T> currentNode;
 
-        for (int i = 0; i < index; i++) {
-            if (currentNode == null)
-                throw new IndexOutOfBoundsException();
+        int half = size / 2; // поиск нужной ноды
+        if (index < half) {
+            currentNode = head;
+            for (int i = 0; i < index; i++) {
+                if (currentNode == null)
+                    throw new IndexOutOfBoundsException();
 
-            prevNode = currentNode;
-            currentNode = currentNode.next;
+                prevNode = currentNode;
+                currentNode = currentNode.next;
+            }
+        } else {
+            currentNode = tail;
+            for (int i = size - 1; i > index; i--) {
+                if (currentNode == null)
+                    throw new IndexOutOfBoundsException();
+
+                prevNode = currentNode.prev.prev;
+                currentNode = currentNode.prev;
+            }
         }
 
+        // удаление
         if (prevNode == null) {
             head = currentNode.next;
             if (head != null) {
@@ -57,6 +69,8 @@ public class LinkedList<T> {
                 currentNode.next.prev = prevNode;
             }
         }
+
+        size--;
     }
 
     public void removeValue(T value) {
@@ -97,12 +111,25 @@ public class LinkedList<T> {
     }
 
     public T get(int index) {
-        Node<T> currentNode = head;
+        Node<T> currentNode;
+        int half = size / 2;
 
-        for (int i = 0; i < index; i++) {
-            if (currentNode == null)
-                throw new IndexOutOfBoundsException();
-            currentNode = currentNode.next;
+        if (index < half) {
+            currentNode = head;
+            for (int i = 0; i < index; i++) {
+                if (currentNode == null)
+                    throw new IndexOutOfBoundsException();
+                currentNode = currentNode.next;
+            }
+
+        } else {
+            currentNode = tail;
+            for (int i = size - 1; i > index; i--) {
+                if (currentNode == null)
+                    throw new IndexOutOfBoundsException();
+                currentNode = currentNode.prev;
+            }
+
         }
 
         if (currentNode == null)
@@ -112,15 +139,7 @@ public class LinkedList<T> {
     }
 
     public int size() {
-        int size = 0;
-        Node<T> currentNode = head;
-
-        while (currentNode != null) {
-            size++;
-            currentNode = currentNode.next;
-        }
-
-        return size;
+        return this.size;
     }
 
     @Override

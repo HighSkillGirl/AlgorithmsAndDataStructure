@@ -16,13 +16,18 @@ public class DoublyLinkedListTest {
         System.out.println("list contains 0: " + myDoublyLinkedList.contains(0));
 
         System.out.println("get by index 3: " + myDoublyLinkedList.get(3));
+        System.out.println("get by index 0: " + myDoublyLinkedList.get(0));
+        System.out.println("get by index 2: " + myDoublyLinkedList.get(2));
+        System.out.println("get by index 1: " + myDoublyLinkedList.get(1));
 
         System.out.println(myDoublyLinkedList.size());
 
         myDoublyLinkedList.removeIndex(1);
+        myDoublyLinkedList.addFirst(3);
         myDoublyLinkedList.removeIndex(0);
         System.out.println("list after removing value by index 1, 0: " + myDoublyLinkedList);
-        myDoublyLinkedList.removeIndex(1);
+        myDoublyLinkedList.addFirst(11);
+        myDoublyLinkedList.removeIndex(2);
         myDoublyLinkedList.removeIndex(0);
         System.out.println("list after removing all: " + myDoublyLinkedList);
 
