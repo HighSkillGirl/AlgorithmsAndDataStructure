@@ -7,7 +7,7 @@ package high.skill.girl.learns.algorithms.tasks.leetcode.easy;
 Корень - глубина 1.
 
 сложность по памяти O(n)
-сложность по времени (n)
+сложность по времени O(n)
  */
 
 import java.util.ArrayDeque;
