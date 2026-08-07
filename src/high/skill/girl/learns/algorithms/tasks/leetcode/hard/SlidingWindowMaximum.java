@@ -50,18 +50,18 @@ public class SlidingWindowMaximum {
 
         int left = 0;
         for (int right = 0; right < nums.length; right++) {
-            if (right - left + 1 > k) { // этот блок выносится первым -> перебрасывается с предыдущего цикла
+            if (right - left + 1 > k) { // этот блок нужен первым, так как перебрасывается с предыдущего цикла
                 left++;
                 if (deque.peekFirst() < left) { // удаляем в случае, если вышли за границу окна
                     deque.pollFirst();
                 }
             }
 
-            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[right]) { // пакман: съедаем число, если новое больше и очередь не пуста - гарантирует только кандидатов на максимум
-                deque.pollLast();
+            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[right]) { // пакман: съедаем число, если новое больше и очередь не пуста
+                deque.pollLast();                                              // - гарантирует, что в очереди будут только кандидаты на максимум
             }
 
-            deque.offerLast(right); // кладем новое число
+            deque.offerLast(right); // кладем новое число всегда, чтобы не потерять возможных кандидатов
 
             if (right - left + 1 == k) { // окно сформировано, забираем из очереди максимум
                 result[index] = nums[deque.peekFirst()];
