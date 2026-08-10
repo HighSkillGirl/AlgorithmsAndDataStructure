@@ -14,6 +14,13 @@ Example 2:
     Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
 
 Follow up: Could you solve it without converting the integer to a string?
+
+Сложность по времени
+    V1 - O(n)
+    V2 - O(n) -> формально так как входящее число типа int, сложность можно считать константной. Но я записываю линейную, так как строка зависит от входных данных
+Сложность по памяти
+    V1 - O(n)
+    V2 - O(1)
  */
 
 public class PalindromeNumber {
@@ -48,7 +55,7 @@ public class PalindromeNumber {
             return true;
     }
 
-    private static boolean isPalindromeV2(int x) {
+    private static boolean isPalindromeV2(int x) { // элегантное решение, где проход по одной цифре происходит засчет деления
         int copy = x;
         int result = 0;
 
