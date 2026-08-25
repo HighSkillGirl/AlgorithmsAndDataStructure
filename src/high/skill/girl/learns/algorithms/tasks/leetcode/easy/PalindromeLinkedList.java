@@ -41,7 +41,7 @@ public class PalindromeLinkedList {
             current = next; // взяли следующий ээлемент
         }
 
-        while (prev != null) { // сравниваем
+        while (prev != null) { // сравниваем последовательность head-prev
             if (prev.val != head.val)
                 return false;
 
