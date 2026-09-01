@@ -40,6 +40,46 @@ public class PriorityQueue<T> {
         return true;
     }
 
+    @SuppressWarnings("unchecked")
+    public T peek() {
+        return (T) array[0];
+    }
+
+    @SuppressWarnings("unchecked")
+    public T poll() {
+        T head = (T) array[0];
+        array[0] = array[size - 1];
+        array[size - 1] = null;
+        size--;
+
+        int parentIndex = 0;
+        int minimumPosition;
+
+        while (parentIndex < size) {
+            int leftChildIndex = 2 * parentIndex + 1;
+            int rightChildIndex = 2 * parentIndex + 2;
+
+            if (leftChildIndex >= size) // заполнение кучи идет слева напрово. Если левого потомка нет - это конец
+                break;
+            if (rightChildIndex >= size) // если правого нет - значит претендент только один
+                minimumPosition = leftChildIndex;
+            else if (comparator.compare((T) array[leftChildIndex], (T) array[rightChildIndex]) <= 0) // оба потомка присутствуют - сравниваем
+                minimumPosition = leftChildIndex;
+            else
+                minimumPosition = rightChildIndex;
+
+            if (comparator.compare((T) array[parentIndex], (T) array[minimumPosition]) <= 0) // минимум уже на своем месте
+                break;
+
+            T tempHead = (T) array[parentIndex];
+            array[parentIndex] = array[minimumPosition];
+            array[minimumPosition] = tempHead;
+            parentIndex = minimumPosition;
+        }
+
+        return head;
+    }
+
     public int size() {
         return this.size;
     }
